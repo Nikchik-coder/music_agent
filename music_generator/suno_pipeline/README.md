@@ -1,0 +1,1 @@
+this is folder for pipeline for automatic music generation using suno.ai and soundcloud apis.
