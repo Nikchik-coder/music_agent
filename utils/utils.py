@@ -236,3 +236,47 @@ def clean_response(response_text: str) -> str:
         return cleaned_response
     except Exception as e:
         logger.error(f"Error cleaning response: {e}")
+
+
+
+def load_agent_personality(file_path: str):
+    with open(file_path) as f:
+        data = json.load(f)
+    return data
+
+
+def load_json(file_path, create_file=False):
+    """Loads JSON file."""
+    try:
+        logger.info(f"Attempting to load file from: {file_path}")
+        if not os.path.exists(file_path):
+            logger.warning(
+                f"File does not exist at path. Creating new file: {file_path}"
+            )
+            if create_file:
+                os.makedirs(os.path.dirname(file_path), exist_ok=True)
+                with open(file_path, "w", encoding="utf-8") as f:
+                    json.dump({}, f)
+                return {}
+            return {}
+
+        with open(file_path, "r", encoding="utf-8") as f:
+            content = f.read()
+            if not content:
+                logger.warning(
+                    f"File is empty: {file_path}. Returning empty dictionary."
+                )
+                return {}
+            data = json.loads(content)
+            logger.info(f"Successfully loaded JSON data from {file_path}")
+            return data
+
+    except json.JSONDecodeError as je:
+        logger.error(
+            f"JSON parsing error in {file_path}: {je}. Returning empty dictionary."
+        )
+        return {}
+
+    except Exception as e:
+        logger.error(f"Error loading file {file_path}: {e}")
+        return {}
