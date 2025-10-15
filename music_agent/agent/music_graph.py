@@ -1,22 +1,20 @@
 from langgraph.graph import END, START, StateGraph
-from music_generator.suno_pipeline.state import MusicGenerationState
-import logging
-from music_generator.suno_pipeline.music_generation_prompt import (
+from music_agent.agent.state import MusicGenerationState
+from music_agent.agent.music_generation_prompt import (
     MUSIC_GENERATION_PROMPT,
     MUSIC_VALIDATION_PROMPT,
 )
 from utils.utils import clean_response
 from langchain_core.output_parsers import JsonOutputParser
 from config.config import SunoSettings, SoundcloudSettings
-from music_generator.suno_pipeline.sunoapi import generate_song_suno
-from music_generator.soundcloud.soundcloud_upload import SoundCloudUploader
+from music_agent.agent.sunoapi import generate_song_suno
 import json
 from datetime import datetime
 import os
 import shutil
 
 
-logger = logging.getLogger(__name__)
+from app_logging.logger import logger
 
 
 class MusicGeneration:

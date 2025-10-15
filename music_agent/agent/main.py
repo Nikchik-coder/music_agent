@@ -8,13 +8,13 @@ from config.config import (
     AgentConfig,
     MediaPaths,
 )
-from music_generator.suno_pipeline.music_graph import MusicGeneration
+from music_agent.agent.music_graph import MusicGeneration
 from utils.utils import (
     load_agent_personality,
     load_json,
     initialize_llm,
 )
-from music_generator.suno_pipeline.state import MusicGenerationState
+from music_agent.agent.state import MusicGenerationState
 from app_logging.logger import logger
 
 
