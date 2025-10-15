@@ -1,0 +1,99 @@
+[project]
+name = "music_agent"
+version = "0.0.1"
+description = "Music agent"
+authors = [{ name = "nickchick-coder" }]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.13"
+dependencies = [
+    "config==0.5.1",
+    "duckduckgo-search==7.3.0",
+    "elevenlabs==2.16.0",
+    "fastapi==0.116.1",
+    "ffmpeg-python==0.2.0",
+    "gdown==5.2.0",
+    "google-api-python-client==2.177.0",
+    "google-auth==2.40.3",
+    "google-auth-httplib2>=0.2.0",
+    "google-auth-oauthlib==1.2.2",
+    "httpx==0.28.1",
+    "langchain-community==0.3.21",
+    "langchain-core>=0.2.22",
+    "langchain-google-genai==2.1.12",
+    "langchain-mistralai==0.2.12",
+    "langchain-ollama==0.3.8",
+    "langchain-openai==0.3.9",
+    "langchain-together==0.3.1",
+    "langchain_mcp_adapters==0.1.9",
+    "langgraph==0.6.6",
+    "markdownify==0.11.0",
+    "moviepy==2.2.1",
+    "mutagen==1.47.0",
+    "obsws-python==1.8.0",
+    "opencv-python-headless==4.10.0.84",
+    "openai==1.98.0",
+    "protobuf>=5.27.2",
+    "pydantic==2.11.7",
+    "pydantic-settings==2.10.1",
+    "pydub==0.25.1",
+    "python-dotenv==1.1.1",
+    "audioop-lts",
+    "requests==2.32.4",
+    "schedule==1.2.2",
+    "soundcloud-lib @ git+https://github.com/3jackdaws/soundcloud-lib.git",
+    "tavily-python==0.7.12",
+    "uvicorn==0.35.0",
+    "mutagen==1.47.0",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.11.1",
+    "ruff>=0.1.6",
+    "black>=23.11.0",
+    "isort>=5.12.0",
+    "pytest>=8.0.0"
+]
+debug = [
+    "debugpy>=1.8.0",
+]
+
+[build-system]
+requires = ["setuptools>=73.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+lint.select = [
+    "E",    # pycodestyle
+    "F",    # pyflakes
+    "I",    # isort
+    "D",    # pydocstyle
+    "D401", # First line should be in imperative mood
+    "T201",
+    "UP",
+]
+lint.ignore = ["UP006", "UP007", "UP035", "D417", "E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D", "UP"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+    "api*",
+    "app_logging*",
+    "config*",
+    "ffmpeg_stream*",
+    "LLM*",
+    "services*",
+    "tests*",
+    "video*",
+    "voice*",
+    "state*",
+]
+# 'exclude' is useful for things that should never be packaged
+exclude = ["logs", "state", "venv"]

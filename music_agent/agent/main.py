@@ -1,5 +1,4 @@
 import asyncio
-import logging
 import sys
 
 from config.config import (
@@ -10,27 +9,13 @@ from config.config import (
     MediaPaths,
 )
 from music_generator.suno_pipeline.music_graph import MusicGeneration
-from news_generator.src.utils import (
+from utils.utils import (
     load_agent_personality,
     load_json,
     initialize_llm,
 )
 from music_generator.suno_pipeline.state import MusicGenerationState
-
-
-# Configure logging here (before any logger usage)
-logging.basicConfig(
-    level=logging.INFO,  # Or DEBUG for more detail
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    handlers=[
-        logging.StreamHandler(sys.stdout),  # Output to console
-        logging.FileHandler(
-            "researcher.log", encoding="utf-8"
-        ),  # Optional: Output to a file
-    ],
-)
-
-logger = logging.getLogger(__name__)
+from app_logging.logger import logger
 
 
 # Load the configuration

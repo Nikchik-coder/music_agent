@@ -5,7 +5,7 @@ from music_generator.suno_pipeline.music_generation_prompt import (
     MUSIC_GENERATION_PROMPT,
     MUSIC_VALIDATION_PROMPT,
 )
-from news_generator.src.utils import clean_response
+from utils.utils import clean_response
 from langchain_core.output_parsers import JsonOutputParser
 from config.config import SunoSettings, SoundcloudSettings
 from music_generator.suno_pipeline.sunoapi import generate_song_suno

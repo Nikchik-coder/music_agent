@@ -1,15 +1,12 @@
 from __future__ import annotations
 
-import logging
 from pathlib import Path
-from typing import Optional, Dict, Any
+from typing import Optional
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from dataclasses import field
-from dotenv import find_dotenv
 
-logger = logging.getLogger(__name__)
+from app_logging.logger import logger
 
 
 class YouTubeSettings(BaseSettings):

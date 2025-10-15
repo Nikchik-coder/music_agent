@@ -2,7 +2,7 @@ import os
 from config.config import SoundcloudSettings
 from sclib.sync import SoundcloudAPI, Track, Playlist
 
-from radio.utils.logger import logger
+from app_logging.logger import logger
 
 
 class Soundcloud:
