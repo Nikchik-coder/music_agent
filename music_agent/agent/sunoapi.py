@@ -35,7 +35,7 @@ def generate_song_suno(
         "title": "",  # leave empty if customMode is false
         "customMode": False,  # Lyrics auto generation mode
         "instrumental": True, #There should be no vocals in the song if its true
-        "model": "V4_5",  # Available models: V3_5, V4, V4_5
+        "model": "V5",  # Available models: V3_5, V4, V4_5, V5
         "negativeTags": negativeTags,  # Music styles or traits to exclude from the generated audio.
         "vocalGender": vocalGender,  # Available genders: m, f
         "styleWeight": styleWeight,  # Weight of the provided style guidance. Range 0.00–1.00.
