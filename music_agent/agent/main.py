@@ -4,9 +4,7 @@ import sys
 from config.config import (
     LLMSettings,
     SunoSettings,
-    SoundcloudSettings,
     AgentConfig,
-    MediaPaths,
 )
 from music_agent.agent.music_graph import MusicGeneration
 from utils.utils import (
@@ -24,7 +22,6 @@ try:
     llm_config = LLMSettings()
     agent_config = AgentConfig()
     suno_settings = SunoSettings()
-    soundcloud_settings = SoundcloudSettings()
     agent_personality = agent_config.agent_personality_path
     logger.info("Configuration loaded.")
 except Exception as e:
@@ -91,7 +88,7 @@ async def main():
             music_memory = {}
         music_memory = music_memory.get("music_generation_history", [])[-5:]
         music_memory_file_path = suno_settings.MUSIC_MEMORY_PATH
-        music_folder = suno_settings.MUSIC_OUTPUT_DIR
+        music_folder = suno_settings.MUSIC_OUTPUT_DIR or "songs"
         agent_name = agent_personality["agent"]["name"]
         music_style = agent_personality["music_style"]
         call_back_url = suno_settings.SUNO_CALLBACK_URL

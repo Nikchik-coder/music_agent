@@ -6,7 +6,7 @@ from music_agent.agent.music_generation_prompt import (
 )
 from utils.utils import clean_response
 from langchain_core.output_parsers import JsonOutputParser
-from config.config import SunoSettings, SoundcloudSettings
+from config.config import SunoSettings
 from music_agent.agent.sunoapi import generate_song_suno
 import json
 from datetime import datetime
@@ -41,7 +41,6 @@ class MusicGeneration:
         self.call_back_url = call_back_url
         self.music_memory_counter = 0
         self.suno_settings = SunoSettings()
-        self.soundcloud_settings = SoundcloudSettings()
         self.graph = self._build_graph()
 
     def _build_graph(self):
