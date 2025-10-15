@@ -134,6 +134,6 @@ async def generate_music(number_of_songs: int):
 
 
 if __name__ == "__main__":
-    number_of_songs = 5
+    number_of_songs = 1
     logger.info(f"Starting music generation for {number_of_songs} songs...")
     asyncio.run(generate_music(number_of_songs))
