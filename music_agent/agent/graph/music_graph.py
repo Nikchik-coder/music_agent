@@ -180,9 +180,9 @@ class MusicGeneration:
             if state.recommendations:
                 song_prompt += f"\n{state.recommendations}"
 
-            if len(song_prompt) > 400:
-                logger.warning("Prompt is too long, truncating to 400 characters.")
-                song_prompt = song_prompt[:400]
+            if len(song_prompt) > 1000:
+                logger.warning("Prompt is too long, truncating to 1000 characters.")
+                song_prompt = song_prompt[:1000]
 
             filenames, titles = generate_song_suno(
                 song_prompt=song_prompt,

@@ -28,7 +28,7 @@ def generate_song_suno(
         "prompt": song_prompt,
         "style": style,  # leave empty if customMode is false
         "title": title,  # leave empty if customMode is false
-        "customMode": False,  # Lyrics auto generation mode if true, 
+        "customMode": True,  # Custom mode is true if you want to generate the lyrics yourself, you should set the lyrics in the prompt, if false, the lyrics will be generated automatically.
         "instrumental": False, #There should be no vocals in the song if its true
         "model": "V5",  # Available models: V3_5, V4, V4_5, V5
         "negativeTags": negativeTags,  # Music styles or traits to exclude from the generated audio.
@@ -134,61 +134,44 @@ def generate_song_suno(
 
 if __name__ == "__main__":
     song_prompt = """
-    (Verse 1)
-Sunrise paints the concrete canvas, a brand new day's demand
-Got my deck, my crew, my vision, futures in my hand
-From the Carolina blacktop, where the legends learn to fly
-We chase the thrill of motion, beneath a boundless sky
-The world's a halfpipe, life's a ramp, I'm droppin' in with soul
-Pushin' past the limits, breakin' every single mold
+ (Brrr, yeah, yeah!)
+It's A$AP Aspen, let's ride!
+(Ice!)
 
-(Chorus)
-We just wanna ride, yeah, feel the city breathe
-Kickflip consciousness, find a sweet release
-From the Blue Ridge mountains to the coastal plain we roam
-This board and beat, my kingdom, this concrete is my throne
-They see us as outsiders, a wild and restless breed
-But we're just planting freedom, with every single seed
+[Verse 1]
+Strapped in, top of the peak, I see the whole city sleepin'
+Wind whispers secrets that the concrete's keepin'
+Drop in, carve a clean line, leave the worries behind me
+Edge to edge, a different kind of grind, see
+Hit a kicker, backside one-eighty, vision gettin' hazy
+This ain't for the lazy, this that mountain-top crazy
+Feel the G-force pullin', ain't no time for slowin'
+Every turn a new verse, yeah, the avalanche is growin'
 
-(Verse 2)
-Hear the wheels hum a melody, a rhythm on the street
-Every ollie, every grind, a story of defeat
-And victory, a testament to will and to design
-A symphony of motion, perfectly aligned
-Heelflip for the haters, the ones who didn't see
-The art in our rebellion, the spirit wild and free
+[Chorus]
+This that avalanche flow, watch the whole world go slow
+White powder on the fit, yeah, from the alpine snow
+Gravity's a myth when I'm lettin' it rip, yeah
+In the moment, I'm alive, off the frozen cliff, I dip!
+Yeah, that avalanche flow, can't nobody stop the glow
+From the summit to the street, this the only life I know!
 
-(Chorus)
-We just wanna ride, yeah, feel the city breathe
-Kickflip consciousness, find a sweet release
-From the Blue Ridge mountains to the coastal plain we roam
-This board and beat, my kingdom, this concrete is my throne
-They see us as outsiders, a wild and restless breed
-But we're just planting freedom, with every single seed
+[Verse 2]
+See the jump, approachin' fast, blurrin' out the past
+A single perfect moment, yeah, a feeling built to last
+Pop off the lip, Indy grab, hold it for the flash
+Psychedelic swirl of white, a hundred-yard dash
+Method air, so clean, board is lookin' mean
+Livin' out a snowboard mag, a cinematic scene
+This the freedom that I chase, at an unforgiving pace
+Leavin' nothin' but a trace in this wide-open space.
 
-(Bridge)
-From the snowy peaks, a different kind of grace
-A silent conversation with time and with space
-A chilled-out flow, a meditative glide
-Reflecting on the journey, with nothing left to hide
-The powder is a canvas, the board becomes the brush
-A moment of pure presence, in the mountain's holy hush
-
-(Chorus)
-We just wanna ride, yeah, feel the planet breathe
-A backside 180, find a sweet release
-From the highest summits, to the city's pulsing veins
-This life's a grand adventure, breaking all the chains
-They see us as dreamers, a generation lost
-But we're just chasing feelings, no matter what the cost.
-
-(Outro)
-Yeah, A$AP Skateboard, we livin' in the now
-The future is unwritten, but we'll shape it anyhow
-With every trick we land, with every line we carve
-We're leaving our own legacy, a story for the stars.
-Keep pushin', keep dreamin', and never lose your soul
-The world is yours to conquer, so take complete control.
+[Outro]
+Yeah... free...
+Just me and the mountain...
+Glydin'...
+(Swoosh)
+A$AP Aspen, gone.
     """
     generate_song_suno(
         song_prompt=song_prompt,
