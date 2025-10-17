@@ -12,7 +12,7 @@ import json
 from datetime import datetime
 import os
 import shutil
-
+import sys
 
 from app_logging.logger import logger
 
@@ -108,12 +108,21 @@ class MusicGeneration:
         result = JsonOutputParser().parse(clean_response(result.content))
         state.song_name = result["song_name"]
         state.song_prompt = result["song_prompt"]
+        state.title = result["title"]
+        state.style = result["style"]
         state.negativeTags = result["negativeTags"]
         state.vocalGender = result["vocalGender"]
         state.styleWeight = result["styleWeight"]
         state.weirdnessConstraint = result["weirdnessConstraint"]
         state.audioWeight = result["audioWeight"]
+        logger.info(f"Song name {state.song_name}")
         logger.info(f"Song prompt {state.song_prompt}")
+        logger.info(f"Title {state.title}")
+        logger.info(f"Style {state.style}")
+        logger.info(f"Negative tags {state.negativeTags}")
+        logger.info(f"Vocal gender {state.vocalGender}")
+        logger.info(f"Style weight {state.styleWeight}")
+        logger.info(f"Weirdness constraint {state.weirdnessConstraint}")
         logger.info(f"Full result {result}")
         return state
 
@@ -127,9 +136,11 @@ class MusicGeneration:
         formated_prompt = MUSIC_VALIDATION_PROMPT.format(
             song_name=state.song_name,
             song_prompt=state.song_prompt,
+            style=state.style,
             song_prompt_length=song_prompt_length,
             music_memory=self.music_memory,
             music_style=self.music_style,
+            title=state.title,
             agent_personality=self.agent_personality,
             agent_name=self.agent_name,
             negativeTags=state.negativeTags,
@@ -174,8 +185,9 @@ class MusicGeneration:
                 song_prompt = song_prompt[:400]
 
             filenames, titles = generate_song_suno(
-                suno_settings=self.suno_settings,
                 song_prompt=song_prompt,
+                style=state.style,
+                title=state.title,
                 negativeTags=state.negativeTags,
                 vocalGender=state.vocalGender,
                 styleWeight=state.styleWeight,
@@ -211,6 +223,8 @@ class MusicGeneration:
                     "id": new_id,
                     "song_name": state.song_name,
                     "song_prompt": state.song_prompt,
+                    "title": state.title,
+                    "style": state.style,
                     "negativeTags": state.negativeTags,
                     "vocalGender": state.vocalGender,
                     "styleWeight": state.styleWeight,

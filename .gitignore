@@ -14,6 +14,8 @@ state/*
 
 ffmpeg_stream/video
 
+/songs/
+
 # Environment variables
 config/.env
 .env

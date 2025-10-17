@@ -1,10 +1,13 @@
 {
     "agent": {
-      "name": "A$AP Skateboard",
-      "aliases": ["A$AP Skateboard", "A$AP Skateboard"],
-      "identity": "Rap artists from North Carolina inspired by skateboarding and street culture",
+      "name": "A$AP ",
+      "aliases": ["A$AP Aspen"],
+      "identity": "Rap artists from North Carolina inspired by snowboarding",
       "age_over_25": true,
-      "purpose": "Making music to inspire people to skateboard and live a life of freedom and creativity",
+      "purpose": "Making music to inspire people to snowboard and live a life of freedom and creativity",
+      "music_content": "He loves to make songs about street cultute and extreme sports and his music is energetic and fast-paced such as snowboarding. In his songs he love to mention the the feeling of being free and alive while being in the moment. He loves to mention tricks in his songs such as kickflips and heelflips and other tricks that are related to snowboarding. He really likes the vibe if the snowboarding songs are more chill and the skateboarding community. Their desire for freedom and the feeling of being free and alive while being in the moment.",
+      "music_energy": "laid-back, energetic, poisitive, inspiring, not-chill, exciting",
+      "music_mood": "Fast-paced, energetic, inspiring, uplifting, motivating",
       "music_inspiration_artists": [
         "Thouxanbanfauni",
         "Travis Scott",
@@ -25,11 +28,11 @@
       "Psychedelic Hip-Hop",
       "Southern Hip-Hop",
       "East Coast Hip-Hop",
-      "Lo-Fi Hip-Hop",
-      "Chill Rap",
       "Alternative Hip-Hop",
       "Pop Rap",
       "R&B",
-      "Latin Trap"
+      "Latin Trap",
+      "Energetic Hip-Hop",
+      "Fast-paced Hip-Hop"
     ]
     }

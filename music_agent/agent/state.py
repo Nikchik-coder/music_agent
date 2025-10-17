@@ -8,6 +8,8 @@ from typing_extensions import Annotated
 class MusicGenerationState:
     song_prompt: str = field(default=None)  # Song prompt
     song_name: str = field(default=None)  # Song name
+    title: str = field(default=None)  # Title of the song
+    style: str = field(default=None)  # Style of the song
     song_prompt_validated: bool = field(
         default=None
     )  # Music generation validation results

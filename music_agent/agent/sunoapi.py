@@ -4,37 +4,32 @@ Suno api for generating songs
 
 import requests
 import time
-import logging
-import sys
+from app_logging.logger import logger
+from config.config import Settings
 
-logger = logging.getLogger(__name__)
+settings = Settings()
 
 
 def generate_song_suno(
-    suno_settings,
     song_prompt,
+    style,
+    title,
     negativeTags,
     vocalGender,
     styleWeight,
     weirdnessConstraint,
     audioWeight,
 ):
-    logger.info("Trying to load the api keys")
-    try:
-        suno_api_key = suno_settings.SUNO_API_KEY
-        callback_url = suno_settings.SUNO_CALLBACK_URL
-    except Exception as e:
-        logger.error(
-            f"The error occured durinh the api keys initialization, stopping the execution {e}"
-        )
-        sys.exit(1)
+
+    suno_api_key = settings.suno.SUNO_API_KEY
+    callback_url = settings.suno.SUNO_CALLBACK_URL
 
     payload = {
         "prompt": song_prompt,
-        "style": "",  # leave empty if customMode is false
-        "title": "",  # leave empty if customMode is false
-        "customMode": False,  # Lyrics auto generation mode
-        "instrumental": True, #There should be no vocals in the song if its true
+        "style": style,  # leave empty if customMode is false
+        "title": title,  # leave empty if customMode is false
+        "customMode": False,  # Lyrics auto generation mode if true, 
+        "instrumental": False, #There should be no vocals in the song if its true
         "model": "V5",  # Available models: V3_5, V4, V4_5, V5
         "negativeTags": negativeTags,  # Music styles or traits to exclude from the generated audio.
         "vocalGender": vocalGender,  # Available genders: m, f
@@ -51,7 +46,7 @@ def generate_song_suno(
     response = requests.post(callback_url, json=payload, headers=headers)
 
     response_json = response.json()
-    logger.info("Initial generation request response:", response_json)
+    logger.info(f"Initial generation request response: {response_json}")
 
     if response.status_code == 200 and response_json.get("code") == 200:
         task_id = response_json.get("data", {}).get("taskId")
@@ -70,7 +65,7 @@ def generate_song_suno(
 
                 if feed_response.status_code == 200:
                     feed_data = feed_response.json()
-                    logger.info("Current feed status:", feed_data)
+                    logger.info(f"Current feed status: {feed_data}")
 
                     if feed_data.get("code") == 200:
                         task_details = feed_data.get("data", {})
@@ -83,7 +78,7 @@ def generate_song_suno(
                             songs = response_data.get("sunoData", [])
                             filenames = []
                             titles = []
-                            for item in songs:
+                            for i, item in enumerate(songs):
                                 audio_url = item.get(
                                     "audioUrl"
                                 )  # Corrected key from 'audio_url' to 'audioUrl'
@@ -92,7 +87,7 @@ def generate_song_suno(
                                     logger.info(f"Downloading '{title}'...")
                                     audio_get_response = requests.get(audio_url)
                                     if audio_get_response.status_code == 200:
-                                        filename = f"{title.replace(' ', '_')}.mp3"
+                                        filename = f"{title.replace(' ', '_')}_{i}.mp3"
                                         with open(filename, "wb") as f:
                                             f.write(audio_get_response.content)
                                         logger.info(
@@ -135,3 +130,73 @@ def generate_song_suno(
             f"Failed to start the audio generation task. Status: {response.status_code}, Response: {response.text}"
         )
         return None, None
+
+
+if __name__ == "__main__":
+    song_prompt = """
+    (Verse 1)
+Sunrise paints the concrete canvas, a brand new day's demand
+Got my deck, my crew, my vision, futures in my hand
+From the Carolina blacktop, where the legends learn to fly
+We chase the thrill of motion, beneath a boundless sky
+The world's a halfpipe, life's a ramp, I'm droppin' in with soul
+Pushin' past the limits, breakin' every single mold
+
+(Chorus)
+We just wanna ride, yeah, feel the city breathe
+Kickflip consciousness, find a sweet release
+From the Blue Ridge mountains to the coastal plain we roam
+This board and beat, my kingdom, this concrete is my throne
+They see us as outsiders, a wild and restless breed
+But we're just planting freedom, with every single seed
+
+(Verse 2)
+Hear the wheels hum a melody, a rhythm on the street
+Every ollie, every grind, a story of defeat
+And victory, a testament to will and to design
+A symphony of motion, perfectly aligned
+Heelflip for the haters, the ones who didn't see
+The art in our rebellion, the spirit wild and free
+
+(Chorus)
+We just wanna ride, yeah, feel the city breathe
+Kickflip consciousness, find a sweet release
+From the Blue Ridge mountains to the coastal plain we roam
+This board and beat, my kingdom, this concrete is my throne
+They see us as outsiders, a wild and restless breed
+But we're just planting freedom, with every single seed
+
+(Bridge)
+From the snowy peaks, a different kind of grace
+A silent conversation with time and with space
+A chilled-out flow, a meditative glide
+Reflecting on the journey, with nothing left to hide
+The powder is a canvas, the board becomes the brush
+A moment of pure presence, in the mountain's holy hush
+
+(Chorus)
+We just wanna ride, yeah, feel the planet breathe
+A backside 180, find a sweet release
+From the highest summits, to the city's pulsing veins
+This life's a grand adventure, breaking all the chains
+They see us as dreamers, a generation lost
+But we're just chasing feelings, no matter what the cost.
+
+(Outro)
+Yeah, A$AP Skateboard, we livin' in the now
+The future is unwritten, but we'll shape it anyhow
+With every trick we land, with every line we carve
+We're leaving our own legacy, a story for the stars.
+Keep pushin', keep dreamin', and never lose your soul
+The world is yours to conquer, so take complete control.
+    """
+    generate_song_suno(
+        song_prompt=song_prompt,
+        style="Psychedelic Hip-Hop, Fast-paced Hip-Hop, Trap, Cloud Rap, Southern Hip-Hop, East Coast Hip-Hop, Alternative Hip-Hop, Pop Rap, R&B, Latin Trap, Energetic Hip-Hop",
+        title="Freedom ride",
+        negativeTags="Heavy Metal, Upbeat Drums",
+        vocalGender="m",
+        styleWeight=0.5,
+        weirdnessConstraint=0.5,
+        audioWeight=0.5,
+    )

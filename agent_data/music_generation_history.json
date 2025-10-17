@@ -1,0 +1,30 @@
+{
+    "music_generation_history": [
+        {
+            "id": 1,
+            "song_name": "White Wave",
+            "song_prompt": "(Intro)\nA$AP Aspen, yeah\nStrap in, feel the chill\nLet's ride the white wave\n\n(Verse 1)\nCarolina morning, frost on the pane\nLeave the city noise behind, escape the mundane rain\nGot my deck, freshly waxed, bindings clicking in place\nChasing that adrenaline, setting my own pace\nThey stuck on the gridlock, I'm carving my own line\nOn a mountain of powder, feeling so divine\nFrom the street corner hustle to the black diamond peak\nIt's the same quest for freedom every day of the week\n\n(Chorus)\nYeah, we riding that white wave, living life louder\nGravity's a myth when you're floating on this powder\nHit a corkscrew 7, feel the world spin slow\nA psychedelic rush, watch the energy flow\nThis is more than a moment, this is who we be\nKickflip on reality, wild and totally free\nAlive in the motion, yeah, the feeling's so pure\nJust me and the mountain, that's the only cure\n\n(Verse 2)\nThe trees blur together, a watercolor dream\nA trap beat in my heart, a fast-paced, flowing stream\nDropping in like a bass drop, clean and so steep\nSecrets that the mountain and the solitude keep\nThis that Southern ambition with an alpine high\nGot the soul of the east coast touching the sky\nEvery turn is a rhythm, every jump is a rhyme\nLosing all track of the space and the time\n\n(Bridge)\nHanging in the air, everything is silent now\nIndy grab to the sky, take a final bow\nThe world's a miniature set, from this point of view\nIn this moment, I'm limitless, everything is new\n\n(Chorus)\nYeah, we riding that white wave, living life louder\nGravity's a myth when you're floating on this powder\nHit a corkscrew 7, feel the world spin slow\nA psychedelic rush, watch the energy flow\nThis is more than a moment, this is who we be\nKickflip on reality, wild and totally free\nAlive in the motion, yeah, the feeling's so pure\nJust me and the mountain, that's the only cure\n\n(Outro)\nYeah... just floating\nOn the white wave...\n'Til the sun down...\nA$AP... out.",
+            "title": "White Wave",
+            "style": "Psychedelic Hip-Hop, Fast-paced Hip-Hop, Trap, Cloud Rap, Southern Hip-Hop, East Coast Hip-Hop, Alternative Hip-Hop, Pop Rap, R&B, Latin Trap, Energetic Hip-Hop",
+            "negativeTags": null,
+            "vocalGender": null,
+            "styleWeight": 0.7,
+            "weirdnessConstraint": 0.6,
+            "audioWeight": 0.65,
+            "created_at": "2025-10-16"
+        },
+        {
+            "id": 2,
+            "song_name": "Frostbite Flow",
+            "song_prompt": "(Intro)\nYeah, A$AP Aspen\nFrom the concrete heat to the crystal peak\nFeel that temperature drop\nLet's get it\n\n(Verse 1)\nCarolina summer, asphalt's got that shimmer\nAir so thick and heavy, winter's just a glimmer\nBeen grinding on the pavement, ollies over cracks\nDreaming of a different line, ain't no turning back\nThey caught up in the slow lane, humidity and haze\nI'm manifesting blizzards, counting down the days\nFrom the porch swing rhythm to the half-pipe's steep incline\nIt's the same damn hunger, making the world mine\n\n(Chorus)\nThis that Frostbite Flow, razor sharp and clean\nA psychedelic landscape, a cinematic scene\nHit a tamedog backflip, watch the world invert\nFloating on a trap beat, kicking up the dirt... I mean snow\nThis is more than motion, this a state of mind\nLeave the mundane world and all its weight behind\nAlive in the velocity, cutting through the air\nA solitary freedom, beyond all compare\n\n(Verse 2)\nThe pines are dusted white now, a monochromatic vibe\nThe silence of the mountain is where my thoughts subscribe\nDropping in is like a needle on a fresh vinyl track\nA fast-paced rhythm, there ain't no holding back\nGot that Southern ambition, aiming for the sun\nBut I'm doing it at sub-zero, 'til the run is done\nEvery edge I catch is a hi-hat, sharp and quick\nThis that cloud rap reality, a weightless, stylish trick\n\n(Bridge)\nUp here, hanging in the atmosphere, it's so serene\nJust the sound of my own breathing, a quiet, focused scene\nThe city's just a flicker, a distant, hazy light\nIn this kingdom of the cold, I own the day and night\n\n(Chorus)\nThis that Frostbite Flow, razor sharp and clean\nA psychedelic landscape, a cinematic scene\nHit a tamedog backflip, watch the world invert\nFloating on a trap beat, kicking up the dirt... I mean snow\nThis is more than motion, this a state of mind\nLeave the mundane world and all its weight behind\nAlive in the velocity, cutting through the air\nA solitary freedom, beyond all compare\n\n(Outro)\nYeah... Ice cold\nJust that Frostbite Flow...\nFrom the top to the bottom...\nA$AP... gone.",
+            "title": "Frostbite Flow",
+            "style": "Psychedelic Hip-Hop, Fast-paced Hip-Hop, Trap, Cloud Rap, Southern Hip-Hop, East Coast Hip-Hop, Alternative Hip-Hop, Pop Rap, R&B, Latin Trap, Energetic Hip-Hop",
+            "negativeTags": null,
+            "vocalGender": null,
+            "styleWeight": 0.7,
+            "weirdnessConstraint": 0.6,
+            "audioWeight": 0.65,
+            "created_at": "2025-10-16"
+        }
+    ]
+}
