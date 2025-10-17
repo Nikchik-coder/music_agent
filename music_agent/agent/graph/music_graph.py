@@ -1,13 +1,13 @@
 from langgraph.graph import END, START, StateGraph
-from music_agent.agent.state import MusicGenerationState
-from music_agent.agent.music_generation_prompt import (
+from music_agent.agent.graph.state import MusicGenerationState
+from music_agent.agent.graph.prompts import (
     MUSIC_GENERATION_PROMPT,
     MUSIC_VALIDATION_PROMPT,
 )
 from utils.utils import clean_response
 from langchain_core.output_parsers import JsonOutputParser
 from config.config import SunoSettings
-from music_agent.agent.sunoapi import generate_song_suno
+from music_agent.agent.graph.sunoapi import generate_song_suno
 import json
 from datetime import datetime
 import os

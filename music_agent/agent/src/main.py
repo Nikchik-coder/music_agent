@@ -6,13 +6,13 @@ from config.config import (
     SunoSettings,
     AgentConfig,
 )
-from music_agent.agent.music_graph import MusicGeneration
+from music_agent.agent.graph.music_graph import MusicGeneration
 from utils.utils import (
     load_agent_personality,
     load_json,
     initialize_llm,
 )
-from music_agent.agent.state import MusicGenerationState
+from music_agent.agent.graph.state import MusicGenerationState
 from app_logging.logger import logger
 
 
