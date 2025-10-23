@@ -7,6 +7,7 @@ music memory: {music_memory}
 music style: {music_style}
 agent_personality: {agent_personality}
 agent_name: {agent_name}
+album_style: {album_style} #This is the style of the album and the inspiration for the album.
 </context>
 
 <goal>

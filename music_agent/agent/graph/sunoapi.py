@@ -65,7 +65,7 @@ def generate_song_suno(
 
                 if feed_response.status_code == 200:
                     feed_data = feed_response.json()
-                    logger.info(f"Current feed status: {feed_data}")
+                    # logger.info(f"Current feed status: {feed_data}")
 
                     if feed_data.get("code") == 200:
                         task_details = feed_data.get("data", {})

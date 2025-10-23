@@ -26,6 +26,7 @@ class MusicGeneration:
         music_memory_file_path: str,
         music_folder: str,
         music_style: str,
+        album_style: str,
         agent_personality: dict,
         agent_name: str,
         call_back_url: str,
@@ -36,6 +37,7 @@ class MusicGeneration:
         self.music_memory_file_path = music_memory_file_path
         self.music_folder = music_folder
         self.music_style = music_style
+        self.album_style = album_style
         self.agent_personality = agent_personality
         self.agent_name = agent_name
         self.call_back_url = call_back_url
@@ -103,6 +105,7 @@ class MusicGeneration:
             music_style=self.music_style,
             agent_personality=self.agent_personality,
             agent_name=self.agent_name,
+            album_style=self.album_style,
         )
         result = await self.llm_thinking.ainvoke(formated_prompt)
         result = JsonOutputParser().parse(clean_response(result.content))

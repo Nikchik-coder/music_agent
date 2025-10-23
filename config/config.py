@@ -48,6 +48,7 @@ class SunoSettings(BaseSettings):
     SUNO_API_KEY: Optional[str] = Field(default=None, env="SUNO_API_KEY")
     MUSIC_STYLE_PATH: Optional[str] = Field(default=None, env="MUSIC_STYLE_PATH")
     MUSIC_MEMORY_PATH: Optional[str] = Field(default=None, env="MUSIC_MEMORY_PATH")
+    ALBUM_STYLE_PATH: Optional[str] = Field(default=None, env="ALBUM_STYLE_PATH")
     SUNO_CALLBACK_URL: Optional[str] = Field(default=None, env="SUNO_CALLBACK_URL")
     MUSIC_HISTORY_PATH: Optional[str] = Field(default=None, env="MUSIC_HISTORY_PATH")
     MUSIC_OUTPUT_DIR: Optional[str] = Field(default=None, env="MUSIC_OUTPUT_DIR")
